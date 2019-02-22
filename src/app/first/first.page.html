@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create New GPS Thing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+      <ion-label stacked>
+        Thing Name
+      </ion-label>
+      <ion-input [(ngModel)]="flatno" placeholder="Thing Name"></ion-input>
+    </ion-item>
+    <ion-item-divider>
+    <ion-label>
+      Attributes
+    </ion-label>
+  </ion-item-divider>
+    <ion-item>
+      <ion-label stacked>
+        Enviornment
+      </ion-label>
+      <ion-input [(ngModel)]="name" placeholder="Enviornment"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>
+        Location
+      </ion-label>
+      <ion-input [(ngModel)]="email" placeholder="Location"></ion-input>
+    </ion-item>
+      
+    <ion-item>   
+      <ion-label stacked>
+        Model 
+      </ion-label>
+      <ion-input type="tel" [(ngModel)]="mobile" placeholder="Model"></ion-input>
+    </ion-item>
+    <ion-item-divider>
+    <ion-label>
+      Rules
+    </ion-label>
+  </ion-item-divider>
+    <ion-item>
+      <ion-label stacked>
+        Rule Name
+      </ion-label>
+      <ion-input type="number"[(ngModel)]="vnum" placeholder="Rule Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>
+        Rule Description
+      </ion-label>
+      <ion-input type="number"[(ngModel)]="mnum" placeholder="Rule Desc"></ion-input>
+    </ion-item>
+    <span  >
+     <ion-item>
+      <ion-label stacked>
+        Rule Type
+      </ion-label>
+      <ion-input type="number"[(ngModel)]="rt" placeholder="Rule Desc"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label stacked>
+        Rule Value
+      </ion-label>
+      <ion-input type="number"[(ngModel)]="rv" placeholder="Rule Desc"></ion-input>
+    </ion-item>
+    </span>
+  </ion-list>
+  
+  </ion-content>
+  <ion-footer>
+    <ion-button full  class="b" (click)="register()">
+      CONTINUE
+    </ion-button>
+  </ion-footer>
+  

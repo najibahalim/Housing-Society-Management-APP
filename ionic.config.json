@@ -1,5 +1,7 @@
 {
-  "name": "gps1",
-  "integrations": {},
+  "name": "New Ionic App",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
