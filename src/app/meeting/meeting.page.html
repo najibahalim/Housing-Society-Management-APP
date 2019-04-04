@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Meetings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let c of meetings">
+  <ion-card-header>
+    <ion-card-subtitle>{{c.at}}</ion-card-subtitle>
+    <ion-card-title>{{c.subject}}</ion-card-title>
+  </ion-card-header>
+</ion-card>
+</ion-content>

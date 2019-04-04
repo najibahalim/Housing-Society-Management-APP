@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Complaints</ion-title>
+    <ion-buttons slot="end">
+      <ion-button icon-only (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let c of complain"> 
+  <ion-card-header>
+    <ion-card-subtitle>{{c.at}}</ion-card-subtitle>
+    <ion-card-title>{{c.name}} ({{c.flatno}})</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{c.complaint}}
+  </ion-card-content>
+  </ion-card>
+</ion-content>

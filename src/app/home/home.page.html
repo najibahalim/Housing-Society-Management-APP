@@ -1,16 +1,63 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-     Best App
-    </ion-title>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
-  
-  <ion-button (click)="xyc()">Click Here to Send GPS Location</ion-button>
 
-  <ion-card>
-  {{sub}}
-  </ion-card>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary" (click)="notice()">
+          <ion-icon name="browsers"></ion-icon>
+          <h2>Notice</h2>
+          
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary" (click)="contact()">
+          <ion-icon name="call"></ion-icon>
+          <h2>Contacts</h2>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary" (click)="complain()">
+          <ion-icon name="warning"></ion-icon>
+          <h2>Complaints</h2>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card text-center padding color="primary" (click)="bills()">
+          <ion-icon name="cog"></ion-icon>
+        
+          <h2>Maintainance Bills</h2>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+          <ion-card text-center padding color="primary" (click)="meet()">
+            <ion-icon name="calendar"></ion-icon>
+            <h2>Meetings</h2>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card text-center padding color="primary" (click)="admin()">
+            <ion-icon name="person"></ion-icon>
+            <h2>Admin</h2>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card text-center padding color="primary" (click)="pay()">
+            <ion-icon name="logo-usd"></ion-icon>
+            <h2> My Transactions</h2>
+          </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

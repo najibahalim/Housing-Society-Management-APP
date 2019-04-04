@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+ <!-- *ngFor="let l of leclist;let i=index" -->
+<ion-content padding>
+<ion-card class="cardm">
+    <ion-card-header>
+      <ion-card-subtitle>Maintainace Bill</ion-card-subtitle>
+      <ion-card-title>April 2019</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label slot="start">Name</ion-label>
+          <ion-label>{{name}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Amount</ion-label>
+          <ion-label>Rs 1000 </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start"><b>PAID ON</b></ion-label>
+          <ion-label text-wrap>April 2 2019, 3:02:23 PM </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

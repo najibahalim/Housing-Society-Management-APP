@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Student Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="lecture">
+  <ion-row center>
+    <ion-col text-center>
+      <b>Faculty: {{lecture.faculty}} </b>
+    </ion-col> 
+  </ion-row>
+<ion-row center>
+  <ion-col text-center>
+    Subject: {{lecture.subject}}
+  </ion-col>
+  <ion-col text-center>
+    Topic: {{lecture.title}}
+  </ion-col>
+</ion-row>
+<ion-row center>
+<ion-col text-center>
+  Date: {{lecture.date}}
+</ion-col>
+<ion-col text-center>
+  Time: {{lecture.time}}
+</ion-col>
+</ion-row>
+</div>
+<br>
+<br>
+  
+  
+
+<span *ngFor="let topic of lecture.topic;let i=index;">
+<ion-list lines="none" >
+<ion-label><b>{{topic}}</b></ion-label>
+<ion-item >
+  <ion-label text-wrap>Rate how well did you understand the topic on a Scale of 1-10</ion-label>
+</ion-item>
+<ion-item>
+  <ion-range [(ngModel)]="topicvalues[i]" min="1" max="10" step="1" pin="true" snaps="true">
+    <ion-icon slot="start" name="sad"></ion-icon>
+    <ion-icon slot="end" name="happy"></ion-icon>
+  </ion-range>
+</ion-item>
+</ion-list>
+<ion-row center>
+  <ion-col text-center>
+    <ion-button class="c1"  disabled="{{topicvotes[i]}}" size="default" color="tertiary" (click)="doubt(i)">I Have a Doubt!</ion-button><br>
+    <div *ngIf="topicvotes[i]">Doubt Session will be arranged shortly</div>
+  </ion-col>
+</ion-row>
+<ion-item>
+</ion-item>
+
+</span>
+
+
+
+<!-- Overall Feedback -->
+
+<ion-list lines="none">
+  <ion-item>
+    <ion-label><b>Overall Lecture</b></ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label text-wrap>Rate how well did you understand the overall lecture on a Scale of 1-10</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-range [(ngModel)]="overallvalue" min="1" max="10" step="1" pin="true" snaps="true">
+      <ion-icon slot="start" name="sad"></ion-icon>
+      <ion-icon slot="end" name="happy"></ion-icon>
+    </ion-range>
+  </ion-item>
+</ion-list>
+
+<ion-label> Feedback Summarization </ion-label>
+<ion-textarea [(ngModel)]="feedback" style="border:1px solid black;padding:5px;">
+
+</ion-textarea>
+<ion-item>
+</ion-item>
+
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="submit()">Submit</ion-button>
+</ion-footer>

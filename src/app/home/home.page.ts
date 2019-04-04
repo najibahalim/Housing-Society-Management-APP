@@ -6,96 +6,84 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { Router } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { getParentInjectorLocation } from '@angular/core/src/render3/di';
+import { PopoverController, AlertController } from '@ionic/angular';
+import { ChooseThingComponent } from '../choose-thing/choose-thing.component';
+import { Storage } from '@ionic/storage';
+import { Nav } from '../Nav';
+
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  sub: any;
   constructor(private geolocation: Geolocation, private backgroundMode: BackgroundMode,
-     private http: HTTP, private router: Router) {
-
-    // console.log('I am called');
-    // this.geolocation.getCurrentPosition().then((resp) => {
-    //   console.log(resp.coords.latitude);
-    //    console.log(resp.coords.longitude);
-    // }).catch((error) => {
-    //   console.log('Error getting location', error);
-    // });
-    // let i = 0;
-    // setInterval(function () {
-    //   console.log('count ' + (i++));
-    // }, 3000);
-    // this.backgroundMode.enable();
+    private http: HTTP, private router: Router, public popoverController: PopoverController, private storage: Storage,public nav:Nav,private alertCtrl:AlertController) {
+      console.log(this.nav.getUser())
   }
-
-
-  abc() {
-    const details = {
-      'bus_no': 123,
-      'route_no': 45,
-      'latitude': '67',
-      'longitude': '43',
-      'timestamp': Date.now()
-    };
-    this.http.post('http://192.168.1.105:8200/postReq', details, {})
-      .then(data => {
-        console.log(data);
-        // ---
-        this.http.get('http://192.168.1.105:8200/getReq', {}, {})
-          .then(data1 => {
-            console.log(data1);
-            this.sub = JSON.stringify(data1.data);
-
-          })
-          .catch(error => {
-            console.log(error);
-          });
-        // ---
-
-      })
-      .catch(error => {
-
-        console.log('sdf');
-        console.log(error);
-      });
+  contact(){
+    this.router.navigate(['contact']);
   }
-  xyc() {
-    this.geolocation.getCurrentPosition().then((resp) => {
-      console.log(resp.coords.latitude);
-       console.log(resp.coords.longitude);
-      const details = {
-        'bus_no': 123,
-        'route_no': 45,
-        'latitude': resp.coords.latitude,
-        'longitude': resp.coords.longitude,
-        'timestamp': Date.now()
-      };
-      this.http.post('http://192.168.1.105:8200/postReq', details, {})
-        .then(data => {
-          console.log(data);
-          // ---
-          this.http.get('http://192.168.1.105:8200/getReq', {}, {})
-            .then(data1 => {
-              console.log(data1);
-              this.sub = JSON.stringify(data1.data);
-
-            })
-            .catch(error => {
-              console.log(error);
-            });
-          // ---
-
-        })
-        .catch(error => {
-
-          console.log('sdf');
-          console.log(error);
-        });
-    }).catch((error) => {console.log(error); });
+  notice(){
+    this.router.navigate(['notice']);
+  }
+  complain(){
+    this.router.navigate(['complaint'])
+  }
+ 
+  bills(){
+    this.router.navigate(['meetingadd'])
+  }
+  
+  pay(){
+  this.router.navigate(['lec-list'])
 
   }
+  meet(){
+    this.router.navigate(['meeting'])
+  }
+  admin(){
+    this.presentAlert();
+  }
+  async presentAlert() {
 
+    const alert = await this.alertCtrl.create({
+      header: 'Admin Credentials',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'UserId'
+        },
+        {
+          name: 'name2',
+          type: 'password',
+          placeholder: 'Password'
+        }],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (data) => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Submit',
+          handler: (data) => {
+            console.log('Confirm Ok');
+           if(data.name1==="admin" && data.name2==="0000")
+           {
+             this.router.navigate(["myhome"]);
+           }
+           
+
+          }
+        }
+      ]
+    });
+    return await alert.present();
+  }
 }

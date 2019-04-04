@@ -1,0 +1,29 @@
+<!--
+  Generated template for the NoticePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>Notices</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ <ion-card *ngFor="let notice of notices;let i=index" (click)=viewNotice(i)>
+    <ion-card-header >
+      <ion-card-title>{{ notice.title }}</ion-card-title>
+      <ion-card-subtitle>{{notice.date}}</ion-card-subtitle>
+    </ion-card-header>
+   
+    <ion-card-content>
+    
+      <b>{{ notice.Content }}</b>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
